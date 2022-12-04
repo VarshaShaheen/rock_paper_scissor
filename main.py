@@ -6,7 +6,7 @@ print("The one scoring 5 points first will won")
 
 player_point = comp_point = 0
 
-while (comp_point < 5) or (player_point < 5):
+while (comp_point < 3) and (player_point < 3):
     player_choice = input("\nEnter your choice: rock , paper or scissor")
     computer = choice[randint(0, 2)]
     if player_choice not in choice:
