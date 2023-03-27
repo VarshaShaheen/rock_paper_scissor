@@ -1,43 +1,21 @@
 from random import randint
 
-choice = ["rock", "paper", "scissor"]
+choice = ["stone", "paper", "scissor"]
+max_score = 5
+user_score = 0
+comp_score = 0
 
-print("The one scoring 5 points first will won")
-
-player_point = comp_point = 0
-
-while (comp_point < 3) and (player_point < 3):
-    player_choice = input("\nEnter your choice: rock , paper or scissor")
-    computer = choice[randint(0, 2)]
-    if player_choice not in choice:
-        print("Invalid input")
-        continue
-    elif computer == player_choice:
-        print("\nTie")
-    elif computer == "rock":
-        if player_choice == "scissor":
-            print("\ncomputer scored a point")
-            comp_point = comp_point + 1
-        else:
-            print("\nyou scored a point")
-            player_point = player_point + 1
-    elif computer == "paper":
-        if player_choice == "rock":
-            print("\ncomputer scored a point")
-            comp_point = comp_point + 1
-        else:
-            print("\nyou scored a point")
-            player_point = player_point + 1
+while user_score != max_score and comp_score != max_score:
+    computer = randint(0, 2)
+    print("Enter the choice 0 for rock 1 for paper and 2 for scissor:")
+    user = int(input())
+    print(choice[computer])
+    if user == (computer + 1) % 3:
+        user_score = user_score + 1
     else:
-        if player_choice == "paper":
-            print("\ncomputer scored a point")
-            comp_point = comp_point + 1
-        else:
-            print("\nyou scored a point")
-            player_point = player_point + 1
+        comp_score = comp_score + 1
 
-if player_point == 5:
+if user_score == max_score:
     print("Congratulations you won!")
-
 else:
-    print("Oops computer won!")
+    print("Computer won!")
